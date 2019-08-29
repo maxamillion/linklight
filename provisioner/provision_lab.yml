@@ -82,26 +82,6 @@
             - 'ansible_security.ids_config'
             - 'ansible_security.ids_install'
 
-        - block:
-            - name: download ibm.qradar collection
-              get_url:
-                url: 'https://s3.amazonaws.com/linklight.securityautomation/ibm-qradar-0.0.1.tar.gz'
-                dest: './ibm-qradar-0.0.1.tar.gz'
-
-            - name: install ibm.qradar collection
-              shell: "ansible-galaxy collection install ./ibm-qradar-0.0.1.tar.gz -f --force-with-deps -p ./collections/ "
-          when: security_console == 'qradar'
-
-        - block:
-            - name: download splunk.enterprise_security collection
-              get_url:
-                url: 'https://s3.amazonaws.com/linklight.securityautomation/splunk-enterprise_security-0.0.1.tar.gz'
-                dest: './splunk-enterprise_security-0.0.1.tar.gz'
-
-            - name: install ibm.qradar collection
-              shell: "ansible-galaxy collection install ./splunk-enterprise_security-0.0.1.tar.gz -f --force-with-deps -p ./collections/ "
-          when: security_console == 'splunk'
-
 - name: Create lab instances in AWS
   hosts: localhost
   connection: local
