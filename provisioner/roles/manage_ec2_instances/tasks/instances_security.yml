@@ -536,3 +536,19 @@
         {{ ('results' in ec2_subnet2_eni_tags_attacker_async) | ternary(ec2_subnet2_eni_tags_attacker_async['results'], []) }}
         + {{ ('results' in ec2_subnet2_eni_snort_async) | ternary(ec2_subnet2_eni_snort_async['results'], []) }}
         + {{ ('results' in ec2_subnet2_eni_checkpoint_gw_async) | ternary(ec2_subnet2_eni_checkpoint_gw_async['results'], []) }}
+
+    - name: Reboot EC2 instances for Subnet2 ENI appliance discovery (Check Point CloudGuard GW)
+      ec2:
+        assign_public_ip: yes
+        key_name: "{{ ec2_name_prefix }}-key"
+        group: "{{ ec2_security_group }}"
+        instance_type: "{{ec2_info.checkpoint_gw.size }}"
+        image: "{{ec2_info.checkpoint_gw.ami.image_id}}"
+        region: "{{ ec2_region }}"
+        user_data: "{{ lookup('template', 'gaia-ftw-user-data.sh.j2') }}"
+        count_tag:
+          Workshop_checkpoint_gw: "{{ec2_name_prefix}}-checkpoint"
+        wait: "{{ ec2_wait }}"
+        vpc_subnet_id: "{{ ec2_vpc_subnet_id }}"
+        state: restarted
+        instance_ids: "{{ checkpoint_gw_output.instance_ids }}"
