@@ -296,8 +296,8 @@
           Workshop: "{{ec2_name_prefix}}"
           Index: "{{ item[0] }}"
           Student: "student{{item[0] + 1}}"
-          AWS_USERNAME: "{{ linklight_user }}"
-          Info: "AWS_USERNAME that provisioned this-> {{ linklight_user }}"
+          AWS_USERNAME: "{{ aws_user }}"
+          Info: "AWS_USERNAME that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           short_name: "checkpoint_mgmt"
@@ -323,8 +323,8 @@
           Workshop: "{{ec2_name_prefix}}"
           Index: "{{ item[0] }}"
           Student: "student{{item[0] + 1}}"
-          AWS_USERNAME: "{{ linklight_user }}"
-          Info: "AWS_USERNAME that provisioned this-> {{ linklight_user }}"
+          AWS_USERNAME: "{{ aws_user }}"
+          Info: "AWS_USERNAME that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           short_name: "windows_ws"
@@ -410,8 +410,8 @@
         state: present
         tags:
           Name: "{{ ec2_name_prefix }}-student{{item[0] + 1}}-attacker-eni2"
-          Username: "{{ linklight_user }}"
-          Info: "Username that provisioned this-> {{ linklight_user }}"
+          Username: "{{ aws_user }}"
+          Info: "Username that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           Subnet: '{{ ec2_name_prefix }}-subnet2'
@@ -430,8 +430,8 @@
         state: present
         tags:
           Name: "{{ ec2_name_prefix }}-student{{item[0] + 1}}-snort-eni2"
-          Username: "{{ linklight_user }}"
-          Info: "Username that provisioned this-> {{ linklight_user }}"
+          Username: "{{ aws_user }}"
+          Info: "Username that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           Subnet: '{{ ec2_name_prefix }}-subnet2'
@@ -543,8 +543,8 @@
         state: present
         tags:
           Name: "{{ ec2_name_prefix }}-student{{item[0] + 1}}-checkpoint_gw-eip1"
-          Username: "{{ linklight_user }}"
-          Info: "Username that provisioned this-> {{ linklight_user }}"
+          Username: "{{ aws_user }}"
+          Info: "Username that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           Subnet: '{{ ec2_name_prefix }}-subnet1'
@@ -564,8 +564,8 @@
         state: present
         tags:
           Name: "{{ ec2_name_prefix }}-student{{item[0] + 1}}-checkpoint_gw-eni1"
-          Username: "{{ linklight_user }}"
-          Info: "Username that provisioned this-> {{ linklight_user }}"
+          Username: "{{ aws_user }}"
+          Info: "Username that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           Subnet: '{{ ec2_name_prefix }}-subnet1'
@@ -584,8 +584,8 @@
         state: present
         tags:
           Name: "{{ ec2_name_prefix }}-student{{item[0] + 1}}-checkpoint_gw-eni2"
-          Username: "{{ linklight_user }}"
-          Info: "Username that provisioned this-> {{ linklight_user }}"
+          Username: "{{ aws_user }}"
+          Info: "Username that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           Subnet: '{{ ec2_name_prefix }}-subnet2'
@@ -660,8 +660,8 @@
           Workshop: "{{ec2_name_prefix}}"
           Index: "{{ item[0] }}"
           Student: "student{{item[0] + 1}}"
-          AWS_USERNAME: "{{ linklight_user }}"
-          Info: "AWS_USERNAME that provisioned this-> {{ linklight_user }}"
+          AWS_USERNAME: "{{ aws_user }}"
+          Info: "AWS_USERNAME that provisioned this-> {{ aws_user }}"
           Linklight: "This was provisioned through the linklight provisioner"
           Students: "{{student_total}}"
           short_name: "checkpoint_gw"
